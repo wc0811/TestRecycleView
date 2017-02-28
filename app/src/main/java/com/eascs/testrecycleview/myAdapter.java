@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +32,7 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.ViewHolder> {
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(mContext).inflate(R.layout.layout_list_item, parent, false);
+        View v = LayoutInflater.from(mContext).inflate(R.layout.ad_home_menu, parent, false);
         return new ViewHolder(v);
     }
 

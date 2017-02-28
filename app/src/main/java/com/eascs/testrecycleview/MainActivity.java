@@ -1,5 +1,6 @@
 package com.eascs.testrecycleview;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -29,11 +30,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         rclv = (RecyclerView) findViewById(R.id.rclv_Test);
-//        rclv.setLayoutManager(new GridLayoutManager(this, 2));
-        rclv.setLayoutManager(new LinearLayoutManager(this));
+        rclv.setLayoutManager(new GridLayoutManager(this, 2));
+//        rclv.setLayoutManager(new LinearLayoutManager(this));
         rclv.setItemAnimator(new DefaultItemAnimator());
         adapter = new myAdapter(MainActivity.this, listData);
-        rclv.addItemDecoration(new myItemDecoration(this));
+        rclv.addItemDecoration(new RecyclerSpace(2, Color.BLUE));
         rclv.setAdapter(adapter);
 
     }

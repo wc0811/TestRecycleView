@@ -58,21 +58,15 @@ public class myItemDecoration extends RecyclerView.ItemDecoration {
         for (int i = 0; i < childCount; i++) {
             View child = parent.getChildAt(i);
             int pos = parent.getChildAdapterPosition(child);
-            boolean isLeft = pos % 2 == 0;
-            if (isLeft) {
-                float left = child.getLeft();
-                float right = left + 2;
+                float leftOne = child.getLeft();
+                float rightOne = leftOne + 15;
                 float top = child.getTop();
                 float bottom = child.getBottom();
-                c.drawRect(left, top, right, bottom, leftPaint);
-            } else {
-                float right = child.getRight();
-                float left = right - 1;
-                float top = child.getTop();
-                float bottom = child.getBottom();
-                c.drawRect(left, top, right, bottom, rightPaint);
+                c.drawRect(leftOne, top, rightOne, bottom, leftPaint);
 
-            }
+                float right = child.getRight();
+                float left = right - 10;
+                c.drawRect(left, top, right, bottom, rightPaint);
         }
     }
 }
