@@ -14,6 +14,7 @@ import java.util.List;
 
 /**
  * Created by chao.wang on 2017/2/28.
+ *
  */
 
 public class myAdapter extends RecyclerView.Adapter<myAdapter.ViewHolder> {
