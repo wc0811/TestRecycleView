@@ -62,9 +62,9 @@ public class RecyclerSpace extends RecyclerView.ItemDecoration {
         if (parent.getLayoutManager() != null) {
             if (parent.getLayoutManager() instanceof LinearLayoutManager && !(parent.getLayoutManager() instanceof GridLayoutManager)) {
                 if (((LinearLayoutManager) parent.getLayoutManager()).getOrientation() == LinearLayoutManager.HORIZONTAL) {
-                    outRect.set(0, space, 0, space);
-                } else {
                     outRect.set(space, 0, space, 0);
+                } else {
+                    outRect.set(space, space, space, space);
                 }
             } else {
                 outRect.set(space, space, space, space);
@@ -79,9 +79,9 @@ public class RecyclerSpace extends RecyclerView.ItemDecoration {
         if (parent.getLayoutManager() != null) {
             if (parent.getLayoutManager() instanceof LinearLayoutManager && !(parent.getLayoutManager() instanceof GridLayoutManager)) {
                 if (((LinearLayoutManager) parent.getLayoutManager()).getOrientation() == LinearLayoutManager.HORIZONTAL) {
-                    drawHorizontal(c, parent);
-                } else {
                     drawVertical(c, parent);
+                } else {
+                    drawHorizontal(c, parent);
                 }
             } else {
                 if (isAll) {
@@ -94,7 +94,6 @@ public class RecyclerSpace extends RecyclerView.ItemDecoration {
     }
 
     //绘制纵向 item 分割线
-
     private void drawVertical(Canvas canvas, RecyclerView parent) {
         final int top = parent.getPaddingTop();
         final int bottom = parent.getMeasuredHeight() - parent.getPaddingBottom();

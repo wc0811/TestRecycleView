@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         rclv = (RecyclerView) findViewById(R.id.rclv_Test);
-        rclv.setLayoutManager(new GridLayoutManager(this, 2));
-//        rclv.setLayoutManager(new LinearLayoutManager(this));
+//        rclv.setLayoutManager(new GridLayoutManager(this, 2));
+        rclv.setLayoutManager(new LinearLayoutManager(this));
         rclv.setItemAnimator(new DefaultItemAnimator());
         adapter = new myAdapter(MainActivity.this, listData);
         rclv.addItemDecoration(new RecyclerSpace(2, Color.parseColor("#BFBFBF"), true));
