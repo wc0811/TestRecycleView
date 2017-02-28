@@ -18,7 +18,7 @@ public class RecyclerSpace extends RecyclerView.ItemDecoration {
     private int color = -1;
     private Drawable mDivider;
     private Paint mPaint;
-    private int type;
+    private boolean isAll;
 
     public int getColor() {
         return color;
@@ -41,14 +41,14 @@ public class RecyclerSpace extends RecyclerView.ItemDecoration {
         mPaint.setStrokeWidth(space * 2);
     }
 
-    public RecyclerSpace(int space, int color, int type) {
+    public RecyclerSpace(int space, int color, boolean isAll) {
         this.space = space;
         this.color = color;
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setColor(color);
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setStrokeWidth(space * 2);
-        this.type = type;
+        this.isAll = isAll;
     }
 
     public RecyclerSpace(int space, Drawable mDivider) {
@@ -62,9 +62,9 @@ public class RecyclerSpace extends RecyclerView.ItemDecoration {
         if (parent.getLayoutManager() != null) {
             if (parent.getLayoutManager() instanceof LinearLayoutManager && !(parent.getLayoutManager() instanceof GridLayoutManager)) {
                 if (((LinearLayoutManager) parent.getLayoutManager()).getOrientation() == LinearLayoutManager.HORIZONTAL) {
-                    outRect.set(space, 0, space, 0);
-                } else {
                     outRect.set(0, space, 0, space);
+                } else {
+                    outRect.set(space, 0, space, 0);
                 }
             } else {
                 outRect.set(space, space, space, space);
@@ -84,10 +84,10 @@ public class RecyclerSpace extends RecyclerView.ItemDecoration {
                     drawVertical(c, parent);
                 }
             } else {
-                if (type == 0) {
-                    drawGrideview(c, parent);
+                if (isAll) {
+                    drawGrideviewAll(c, parent);
                 } else {
-                    drawGrideview1(c, parent);
+                    drawGrideview(c, parent);
                 }
             }
         }
@@ -184,7 +184,7 @@ public class RecyclerSpace extends RecyclerView.ItemDecoration {
     }
 
     /***/
-    private void drawGrideview1(Canvas canvas, RecyclerView parent) {
+    private void drawGrideviewAll(Canvas canvas, RecyclerView parent) {
         GridLayoutManager linearLayoutManager = (GridLayoutManager) parent.getLayoutManager();
         int childSize = parent.getChildCount();
         int top, bottom, left, right, spancount;

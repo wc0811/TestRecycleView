@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 //        rclv.setLayoutManager(new LinearLayoutManager(this));
         rclv.setItemAnimator(new DefaultItemAnimator());
         adapter = new myAdapter(MainActivity.this, listData);
-        rclv.addItemDecoration(new RecyclerSpace(2, Color.BLUE));
+        rclv.addItemDecoration(new RecyclerSpace(2, Color.parseColor("#BFBFBF"), true));
         rclv.setAdapter(adapter);
 
     }
